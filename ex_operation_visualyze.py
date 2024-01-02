@@ -20,24 +20,15 @@ def plot_trades(prices, entry_points, exit_points):
     plt.show()
 
 # Exemplo de uso
-#prices = [100, 105, 95, 110, 102, 108, 97, 112, 98, 105, 91, 104]
+# prices       = [100, 105, 95, 110, 102, 108, 97, 112, 98, 105, 91, 104]
+# entry_points = [1,   3,  6,  8, 10, 16, 22, 32, 42]
+# exit_points  = [90,  3, 90,  8, 90, 90, 22, 90, 90]
 
-folder_csv = "~/Work/DATA_CSV/realtime_data/candles_real_time/"
-data = pd.read_csv(f"{folder_csv}pips_30/1_realtime_candles_EURUSD_30.csv")
+data   = pd.read_csv("summary_market.csv")
 prices = data["bid"]
 
 # index entry exit points
-entry_points = [1, 3,  6,  8, 10, 16, 22, 32, 42, 52, 100, 150]
-exit_points  = [4, 8, 10, 25, 50, 65, 65, 65, 65, 65, 200, 250]
-
-# TEst LOOP
-result = [prices[i] for i in entry_points]
-
-res = []
-for i in range(len(entry_points)):
-    entry = entry_points[i]
-    res.append(prices[entry])
-print("Original : ",result)
-print("Next     ; ",res)
+entry_points = [1,   3,  6,  8, 10, 16, 22, 32, 42]
+exit_points  = [90,  3, 90,  8, 90, 90, 22, 90, 90]
 
 plot_trades(prices, entry_points, exit_points)
